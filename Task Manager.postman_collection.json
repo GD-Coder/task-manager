@@ -1,0 +1,393 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Task Manager",
+		"_postman_id": "de9ea8a1-6bad-4af6-d8dd-dad6ed289490",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Calls",
+			"description": "",
+			"item": [
+				{
+					"name": "Update User",
+					"request": {
+						"url": "{{url}}/user/update",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkNDM5NTIzMmI2YzJkMDFjZjU4ZmMiLCJpYXQiOjE1NjY0MDU3MDcsImV4cCI6MTU2ODk5NzcwN30.S9qa8MJK6TAr5_L8GvS0BqotERU31BWRLuYDBcm0Ges",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\": \"test1234\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"url": "{{url}}/user",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Gerald\",\n\"email\": \"grd8198@gmail.com\",\n\"password\": \"P@55w0rd\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"url": "{{url}}/user",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Gerald Downey\",\n\"email\": \"grd8198@gmail.com\",\n\"password\": \"test1234\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"url": "{{url}}/user/login/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"grd8198@gmail.com\",\n\t\"password\": \"test1234\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"url": "{{url}}/user/logout",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkNDM5NTIzMmI2YzJkMDFjZjU4ZmMiLCJpYXQiOjE1NjYzOTg1ODksImV4cCI6MTU2ODk5MDU4OX0.9mdE2EIDQ9UA3ugzSmf6tJKRk7G2Z2bvQKZVIe-ubRE",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"grd8198@gmail.com\",\n\t\"password\": \"Virgo3293\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Profile",
+					"request": {
+						"url": "{{url}}/user/me",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkNDM5NTIzMmI2YzJkMDFjZjU4ZmMiLCJpYXQiOjE1NjY0MDU3MDcsImV4cCI6MTU2ODk5NzcwN30.S9qa8MJK6TAr5_L8GvS0BqotERU31BWRLuYDBcm0Ges",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Jammy\",\n\"email\": \"dipsy@doo.com\",\n\"password\": \"Password\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"url": "{{url}}/user/me",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkOTE3MGI1NWNlMGE2ZmNmYzgyMjciLCJpYXQiOjE1NjY0MTMxNjgsImV4cCI6MTU2OTAwNTE2OH0.fOpZO2sdYi1Yc3QcIvycp_QKfYweeY3t1gar5RDvBXE",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Gerald\",\n\"email\": \"grd8198@gmail.com\",\n\"password\": \"P@55w0rd\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Logout All User Devices",
+					"request": {
+						"url": "{{url}}/user/logoutAll",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkNDM5NTIzMmI2YzJkMDFjZjU4ZmMiLCJpYXQiOjE1NjY0MDM1OTIsImV4cCI6MTU2ODk5NTU5Mn0.HsQuWo_Hg4E9KsL3SbO5RtKXUxkYgJpUqteQj2Vdfj8",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"grd8198@gmail.com\",\n\t\"password\": \"Virgo3293\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Save User Avatar",
+					"request": {
+						"url": "{{url}}/user/me/avatar",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"value": "",
+									"description": "",
+									"type": "file"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task Calls",
+			"description": "",
+			"item": [
+				{
+					"name": "Update Task",
+					"request": {
+						"url": "{{url}}/task/5d5d925eff524f4cdd6d67ba",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkOTE3MGI1NWNlMGE2ZmNmYzgyMjciLCJpYXQiOjE1NjY0MTMxNjgsImV4cCI6MTU2OTAwNTE2OH0.fOpZO2sdYi1Yc3QcIvycp_QKfYweeY3t1gar5RDvBXE",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"complete\": true\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"url": "{{url}}/task/",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkNDM5NTIzMmI2YzJkMDFjZjU4ZmMiLCJpYXQiOjE1NjYzOTUyMDgsImV4cCI6MTU2ODk4NzIwOH0.4RdwN3appc6BHCZ1vRSOsBlCmtT1HuAbVLDg0wGrwsI",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Gerald\",\n\"email\": \"grd8198@gmail.com\",\n\"password\": \"P@55w0rd\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Task",
+					"request": {
+						"url": "{{url}}/task",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkOTE3MGI1NWNlMGE2ZmNmYzgyMjciLCJpYXQiOjE1NjY0MTMxNjgsImV4cCI6MTU2OTAwNTE2OH0.fOpZO2sdYi1Yc3QcIvycp_QKfYweeY3t1gar5RDvBXE",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Task 3\",\n\t\"description\": \"This is task three\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task",
+					"request": {
+						"url": "{{url}}/task/5d5d926aff524f4cdd6d67bb",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkOTE3MGI1NWNlMGE2ZmNmYzgyMjciLCJpYXQiOjE1NjY0MTMxNjgsImV4cCI6MTU2OTAwNTE2OH0.fOpZO2sdYi1Yc3QcIvycp_QKfYweeY3t1gar5RDvBXE",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Gerald\",\n\"email\": \"grd8198@gmail.com\",\n\"password\": \"P@55w0rd\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tasks",
+					"request": {
+						"url": {
+							"raw": "{{url}}/tasks?complete=false&limit=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "complete",
+									"value": "false",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkOTE3MGI1NWNlMGE2ZmNmYzgyMjciLCJpYXQiOjE1NjY0MTMxNjgsImV4cCI6MTU2OTAwNTE2OH0.fOpZO2sdYi1Yc3QcIvycp_QKfYweeY3t1gar5RDvBXE",
+								"description": ""
+							},
+							{
+								"key": "complete",
+								"value": "",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Gerald\",\n\"email\": \"grd8198@gmail.com\",\n\"password\": \"P@55w0rd\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
