@@ -5,9 +5,12 @@
   "repository": "https://github.com/GD-Coder/nodejs-examples/tree/master/task-manager",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "env-cmd -f ./config/test.env jest --watch --runInBand",
     "start": "node src/index.js",
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
@@ -29,8 +32,10 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "env-cmd": "^9.0.3",
+    "jest": "^24.9.0",
     "mocha": "^6.2.0",
     "nock": "^10.0.6",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
   }
 }

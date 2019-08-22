@@ -1,16 +1,5 @@
 // Base
-const express = require("express")
-require("./db/mongoose")
-const app = express()
-
-// Routes
-const UserRoutes = require("./routers/user")
-const TaskRoutes = require("./routers/task")
-
-app.use(express.json())
-app.use(UserRoutes)
-app.use(TaskRoutes)
-
+const app = require("./app")
 const port = process.env.PORT
 
 app.listen(port, () => {
@@ -18,5 +7,5 @@ app.listen(port, () => {
 })
 
 app.get("", (req, res) => {
-  res.send("<h1>Hello!</h1>")
+  res.send("<h1 style='text-align: center;'>Task Manager API</h1>")
 })

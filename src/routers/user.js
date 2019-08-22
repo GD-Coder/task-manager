@@ -4,11 +4,7 @@ const sharp = require("sharp")
 const router = new express.Router()
 const User = require("../db/models/user")
 const auth = require("../middleware/auth")
-const {
-  sendWelcomeEmail,
-  sendCancellationEmail
-} = require("../emails/account")
-
+const { sendWelcomeEmail, sendCancellationEmail } = require("../emails/account")
 
 const upload = multer({
   limits: {
@@ -16,7 +12,9 @@ const upload = multer({
   },
   fileFilter(req, file, callback) {
     if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
-      return callback(new Error("Avatar must be an image (.jpg | .jpeg | .png)."))
+      return callback(
+        new Error("Avatar must be an image (.jpg | .jpeg | .png).")
+      )
     }
     callback(undefined, true)
   }
@@ -74,7 +72,7 @@ router.post("/user/logoutAll", auth, async (req, res) => {
 
 router.patch("/user/update", auth, async (req, res) => {
   const updates = Object.keys(req.body)
-  const allowedUpdates = ["name", "email", "password", "age", ]
+  const allowedUpdates = ["name", "email", "password", "age"]
   const isValidOperation = updates.every(update =>
     allowedUpdates.includes(update)
   )
@@ -100,34 +98,43 @@ router.get("/user/me", auth, async (req, res) => {
   })
 })
 
-router.get("/user/:id/avatar", /*auth,*/ async (req, res) => {
-  try {
-    const user = await User.findById(req.params.id)
-    if (!user || !user.avatar) throw new Error("User avatar not found...")
-    res.set("Content-Type", "image/png")
-    res.send(user.avatar)
-  } catch (error) {
-    res.status(404).send({
-      error: error.message
-    })
-  }
-})
-
-router.post("/user/me/avatar",
-  auth, upload.single("avatar"), async (req, res) => {
-      const buffer = await sharp(req.file.buffer).resize({
-        width: 250,
-        height: 250
-      }).png().toBuffer()
-      req.user.avatar = buffer
-      await req.user.save()
-      res.send()
-    },
-    (error, req, res, next) => {
-      res.status(400).send({
+router.get(
+  "/user/:id/avatar",
+  /*auth,*/ async (req, res) => {
+    try {
+      const user = await User.findById(req.params.id)
+      if (!user || !user.avatar) throw new Error("User avatar not found...")
+      res.set("Content-Type", "image/png")
+      res.send(user.avatar)
+    } catch (error) {
+      res.status(404).send({
         error: error.message
       })
     }
+  }
+)
+
+router.post(
+  "/user/me/avatar",
+  auth,
+  upload.single("avatar"),
+  async (req, res) => {
+    const buffer = await sharp(req.file.buffer)
+      .resize({
+        width: 250,
+        height: 250
+      })
+      .png()
+      .toBuffer()
+    req.user.avatar = buffer
+    await req.user.save()
+    res.status(201).send()
+  },
+  (error, req, res, next) => {
+    res.status(400).send({
+      error: error.message
+    })
+  }
 )
 
 router.delete("/user/remove", auth, async (req, res) => {
